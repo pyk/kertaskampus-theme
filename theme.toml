@@ -1,0 +1,9 @@
+name = "Kertaskampus Theme"
+license = "MIT"
+licenselink = "https://github.com/kertaskampus/kertaskampus-theme/LICENSE.md"
+description = ""
+homepage = "https://github.com/kertaskampus/kertaskampus-theme/"
+
+[author]
+  name = "Bayu Aldi Yansyah"
+  homepage = "https://google.com/+bayualdiyansyah"
