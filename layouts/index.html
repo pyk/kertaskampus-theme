@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns/website#" itemscope itemtype="http://schema.org/WebSite">
+<html lang="en" itemscope itemtype="http://schema.org/WebSite">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Kertas Kampus for Ubuntu Community</title>
-        <meta name="description" content="We help Ubuntu community by providing and maintaining high quality solution to answer their question and solve their problem." />
+        <title>{{ .Site.Title }}</title>
+        <meta name="description" content="{{ .Site.Params.description }}" />
         
-        <meta itemprop="name" content="Kertas Kampus for Ubuntu Community"/>
-        <meta itemprop="url" content="https://ubuntu.kertaskampus.com/"/>
-        <meta itemprop="sameAs" content="https://kertaskampus.com/"/>
-        <meta itemprop="description" content="We help Ubuntu community by providing and maintaining high quality solution to answer their question and solve their problem."/>
-        <meta itemprop="image" content="https://1.bp.blogspot.com/-CDhSV4wr14Q/VP9bgcFX9XI/AAAAAAAAE5s/aIt6U4WHfZs/s1600/kertaskampus-ubuntu800x600.png"/>
+        <meta itemprop="name" content="{{ .Site.Title }}"/>
+        <meta itemprop="url" content="{{ .Site.BaseUrl }}"/>
+        <meta itemprop="sameAs" content="{{ .Site.Params.host }}"/>
+        <meta itemprop="description" content="{{ .Site.Params.description }}"/>
+        <meta itemprop="image" content="{{ .Site.Params.sitebanner }}"/>
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@kertaskampus">
-        <meta name="twitter:title" content="Kertas Kampus for Ubuntu Community">
-        <meta name="twitter:description" content="We help Ubuntu community by providing and maintaining high quality solution to answer their question and solve their problem.">
+        <meta name="twitter:title" content="{{ .Site.Title }}">
+        <meta name="twitter:description" content="{{ .Site.Params.description }}">
         <meta name="twitter:creator" content="@peeyek">
-        <meta name="twitter:image:src" content="https://1.bp.blogspot.com/-CDhSV4wr14Q/VP9bgcFX9XI/AAAAAAAAE5s/aIt6U4WHfZs/s1600/kertaskampus-ubuntu800x600.png">
+        <meta name="twitter:image:src" content="{{ .Site.Params.sitebanner }}">
 
-        <meta property="og:title" content="Kertas Kampus for Ubuntu Community" />
+        <meta property="og:title" content="{{ .Site.Title }}" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ubuntu.kertaskampus.com/" />
-        <meta property="og:image" content="https://1.bp.blogspot.com/-CDhSV4wr14Q/VP9bgcFX9XI/AAAAAAAAE5s/aIt6U4WHfZs/s1600/kertaskampus-ubuntu800x600.png" />
-        <meta property="og:description" content="We help Ubuntu community by providing and maintaining high quality solution to answer their question and solve their problem." />
-        <meta property="og:site_name" content="Kertas Kampus for Ubuntu Community" />
+        <meta property="og:url" content="{{ .Site.BaseUrl }}" />
+        <meta property="og:image" content="{{ .Site.Params.sitebanner }}" />
+        <meta property="og:description" content="{{ .Site.Params.description }}" />
+        <meta property="og:site_name" content="{{ .Site.Title }}" />
+        <meta property="fb:app_id" content="1592539870964479" />
+        
+        <link href="https://plus.google.com/+Kertaskampus" rel="publisher" />
 
         <!-- Bootstrap -->
         <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -44,7 +47,10 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-       
+        
+        <script type="text/javascript" async defer
+          src="https://apis.google.com/js/platform.js?publisherid=114242165525776732038">
+        </script>   
     </head>
     <body class="ubuntu">
         <span itemprop="author" itemscope itemtype="http://schema.org/Organization">
@@ -55,27 +61,32 @@
             <meta itemprop="description" content="We provide and maintain high quality solution on the internet."/>
             <meta itemprop="image" content="http://2.bp.blogspot.com/-B8hbObRejog/VP72OBaFc7I/AAAAAAAAE5g/1Gkp3-XULuE/s1600/kertaskampus-profile500x500.png"/>
 
-            <span itemprop="founder" itemscope itemtype="http://schema.org/Person">
-                <meta content="Bayu Aldi Yansyah" itemprop="name">
-                <meta content="Bayu Aldi Yansyah" itemprop="additionalName">
-                <meta content="https://plus.google.com/112561854874693756984" itemprop="url">
-                <meta content="male" itemprop="gender">
-            </span>
+            <div itemprop="founder" itemscope itemtype="http://schema.org/Person">
+                <meta content="{{ .Site.Params.author }}" itemprop="name"/>
+                <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
+                <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
+                <meta content="male" itemprop="gender"/>
+            </div>
         </span>
 
         <div class="container w640">
             <div class="row">
                 <div class="litle-navbar -at-home col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <a href="https://ubuntu.kertaskampus.com"><img class="logo-ubuntu-svg" src="/assets/svg/kertaskampus-ubuntu.svg"></a>
-
+                    <a href="/"><img class="logo-ubuntu-svg" src="/assets/svg/kertaskampus-ubuntu.svg"></a>
                     <a href="https://kertaskampus.com" class="by-kertaskampus pull-right"><img class="logo-kertaskampus-community-svg" src="/assets/svg/kertaskampus-community-navbar.svg"></a>
                 </div>
+
                 <div class="mission content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p>
-                        We help Ubuntu community by providing and maintaning high quality solution to answer their question and solve their problem. 
+                        We help <a href="http://www.ubuntu.com/">Ubuntu community</a> by providing and maintaning high quality solution to answer their question and solve their problem. 
                     </p>
                 </div>
-                <div class="ubuntu-latest content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                
+                <div class="div social col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="g-follow" data-annotation="bubble" data-height="20" data-href="https://plus.google.com/114242165525776732038" data-rel="publisher"></div>                    
+                </div>
+                 
+                <div class="ubuntu-link-list content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h3>Latest Solution</h3>
                     {{ range first 5 .Data.Pages.ByDate.Reverse }}
                         <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
@@ -104,6 +115,23 @@
                 </div>
             </div>
         </div>
+    
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1592539870964479',
+          xfbml      : true,
+          version    : 'v2.2'
+        });
+      };
 
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
     </body>
 </html>

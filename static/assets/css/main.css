@@ -97,26 +97,82 @@ body.ubuntu a:focus {
     padding-top: 6.5px;
 }
 
+/* Navbar */
 .litle-navbar.-at-home {
     margin-top: 100px;
 }
+
+.litle-navbar.-at-solution-post {
+    margin-top: 16px;
+}
+
 
 .mission {
     margin-top: 40px;
 }
 
-.ubuntu-latest > p {
+.ubuntu-link-list > p {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 3px;
 }
 
-.ubuntu-latest > p > a {
+.ubuntu-link-list > p > a {
     color: #333;
     text-transform: capitalize;
     font-size: 14px;
 }
 
-.ubuntu-latest > p > a:hover {
+.ubuntu-link-list > p > a:hover {
     color: #dd4814;
     opacity: 1;
+}
+
+/* solution */
+.solution {
+    /*margin-top: 52px;*/
+    margin-top: 100px;
+}
+
+.meta {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #c0c0c0;
+    text-transform: uppercase;
+}
+
+.solution h1 {
+    font-size: 32px;
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.solution p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.solution.ubuntu p code {
+    font-size: 13px;
+    color: #dd4814;
+}
+
+.solution h3, .footer h3 {
+    margin-top: 60px;
+    font-size: 12px;
+}
+
+pre {
+    border-radius: 0;
+    border: none;
+    padding: 16px;
+}
+
+.footer {
+    margin-bottom: 60px;
 }

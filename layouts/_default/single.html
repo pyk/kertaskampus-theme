@@ -1,0 +1,196 @@
+{{ $modified := .Params.modified }}
+{{ $createdISO8601 := dateFormat "2006-01-02T15:04:05+07:00" .Date }}
+{{ $modifiedISO8601 := dateFormat "2006-01-02T15:04:05+07:00" $modified }}
+{{ $version := dateFormat "200601_2150405" $modified }}
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Question">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <title>{{ .Title }} - Kertas Kampus</title>
+        <meta name="description" content="{{ .Description }}" />
+        
+        <meta itemprop="version" content="{{ $version }}" />
+        <meta itemprop="image" content="{{ .Params.banner }}" />
+        <meta itemprop="thumbnailUrl" content="{{ .Params.banner }}"/>
+        <meta itemprop="dateCreated" content="{{ $createdISO8601 }}"/>
+        <meta itemprop="dateModified" content="{{ $modifiedISO8601 }}"/>
+        <meta itemprop="datePublished" content="{{ $createdISO8601 }}"/>
+        <meta itemprop="answerCount" content="1"/>
+        <meta itemprop="discussionUrl" content="{{ .Permalink }}"/>
+        <meta itemprop="headline" content="{{ .Title }}"/>
+        <meta itemprop="inLanguage" content="en-US"/>
+        <meta itemprop="isFamilyFriendly" content="true"/>
+        <meta itemprop="typicalAgeRange" content="7-" />
+        <meta itemprop="license" content="https://creativecommons.org/licenses/by/4.0/"/>
+        <meta itemprop="alternativeHeadline" content="{{ .Description }}"/>
+        <meta itemprop="description" content="{{ .Description }}"/>
+        <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
+            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
+            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
+            <meta content="male" itemprop="gender"/>
+        </div>
+        <div itemprop="editor" itemscope itemtype="http://schema.org/Person">
+            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
+            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
+            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
+            <meta content="male" itemprop="gender"/>
+        </div>
+        <meta itemprop="keywords" content="{{delimit .Params.tags ", " ", "}}">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@kertaskampus">
+        <meta name="twitter:title" content="{{ .Title }}">
+        <meta name="twitter:description" content="{{ .Description }}">
+        <meta name="twitter:creator" content="@peeyek">
+        <meta name="twitter:image:src" content="{{ .Params.banner }}">
+
+        <meta property="og:url" content="{{ .Permalink }}" />
+        <meta property="og:title" content="{{ .Title }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="{{ .Params.banner }}" />
+        <meta property="og:description" content="{{ .Description }}" />
+        <meta property="og:site_name" content="{{ .Site.Title }}" />
+        <meta property="fb:app_id" content="1592539870964479" />
+
+        <link href="{{ .Site.BaseUrl }}favicon.ico" rel="icon" type="image/x-icon">        
+        <link rel="canonical" href="{{ .Permalink }}">
+
+        <link href="https://plus.google.com/+Kertaskampus" rel="publisher" />
+
+        <!-- Bootstrap -->
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+
+        <!-- fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        
+        <!-- custom style -->
+        <link href="/assets/css/main.css" rel="stylesheet">
+    
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+       
+        <script type="text/javascript" async defer
+          src="https://apis.google.com/js/platform.js?publisherid=114242165525776732038">
+        </script>
+    </head>
+    <body class="ubuntu">
+    <!-- TODO: tampilin web page dulu -->
+    <div class="container w640">
+            <div class="row">
+                <!-- <div class="litle-navbar -at-solution-post col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <a href="/"><img class="logo-ubuntu-svg" src="/assets/svg/kertaskampus-ubuntu.svg"></a>
+
+                    <a href="https://kertaskampus.com" class="by-kertaskampus pull-right"><img class="logo-kertaskampus-community-svg" src="/assets/svg/kertaskampus-community-navbar.svg"></a>
+                </div> -->
+
+                <div class="solution ubuntu content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="meta">
+                        <span class="tags">
+                            {{ range first 1 .Params.tags }}
+                                {{ $.Scratch.Add "categories" . }}
+                                {{.}}
+                            {{end}}
+                        </span>
+                        <span class="updated_at pull-right">Last modified {{ dateFormat "Jan 2, 2006" $modified }}</span>
+                    </div>
+                    
+                    <h1 itemprop="name">{{ .Title }}</h1>
+                    
+                    <div itemprop="suggestedAnswer acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
+                        <div itemprop="text" class="solution ubuntu content">
+                            {{ .Content }}
+                        </div>
+                        <meta itemprop="about" content="{{ .Description }}"/>
+                        <meta itemprop="dateCreated" content="{{ $createdISO8601 }}"/>
+                        <meta itemprop="dateModified" content="{{ $modifiedISO8601 }}"/>
+                        <meta itemprop="datePublished" content="{{ $createdISO8601 }}"/>
+                        <meta itemprop="url" content="{{ .Permalink }}"/>
+                        <meta itemprop="headline" content="Answer: {{ .Title }}"/>
+                        <meta itemprop="inLanguage" content="en-US"/>
+                        <meta itemprop="isFamilyFriendly" content="true"/>
+                        <meta itemprop="typicalAgeRange" content="7-"/>
+                        <meta itemprop="license" content="https://creativecommons.org/licenses/by/4.0/"/>
+                        <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+                            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
+                            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
+                            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
+                            <meta content="male" itemprop="gender"/>
+                        </div>
+                        <div itemprop="editor" itemscope itemtype="http://schema.org/Person">
+                            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
+                            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
+                            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
+                            <meta content="male" itemprop="gender"/>
+                        </div>    
+                    </div>
+                </div>
+
+                <div class="social col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                           <div class="g-plusone" data-size="medium"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="ubuntu-link-list content col-lg-6 col-md-6 col-sm-6">
+                            <h3>Related Solution</h3>
+                            {{ $categories := .Params.categories }}
+                            {{ $title := .Title }}
+                            {{ range .Site.Pages }}
+                                {{ if in .Params.categories ($categories) }}
+                                    {{ if eq .Title $title }}
+                                    {{ else }}
+                                        <p><a href="{{.Permalink}}">{{ .Title}}</a></p>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </div>
+
+                        <div class="ubuntu-link-list content col-lg-6 col-md-6 col-sm-6">
+                            <h3>Latest Solution</h3>
+                            {{ range first 5 .Site.Recent }}
+                                <p><a href="{{.Permalink}}">{{ .Title}}</a></p>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+    <!-- TODO: add sharing plugin -->
+    <!-- TODO: buat story https://developers.facebook.com/apps/1592539870964479/open-graph/stories/ -->
+    <!-- TODO: buat action types https://developers.facebook.com/apps/1592539870964479/open-graph/action-types/ -->
+    <!-- TODO: buat object types https://developers.facebook.com/apps/1592539870964479/open-graph/object-types/ -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1592539870964479',
+          xfbml      : true,
+          version    : 'v2.2'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    </body>
+</html>
