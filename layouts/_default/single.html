@@ -55,6 +55,7 @@
         <meta property="og:description" content="{{ .Description }}" />
         <meta property="og:site_name" content="{{ .Site.Title }}" />
         <meta property="fb:app_id" content="1592539870964479" />
+        <meta property="fb:admins" content="100000431291668" />
 
         <link href="{{ .Site.BaseUrl }}favicon.ico" rel="icon" type="image/x-icon">        
         <link rel="canonical" href="{{ .Permalink }}">
@@ -75,8 +76,8 @@
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
        
         <script type="text/javascript" async defer
@@ -85,13 +86,8 @@
     </head>
     <body class="ubuntu">
     <!-- TODO: tampilin web page dulu -->
-    <div class="container w640">
+    <div class="container w640 post">
             <div class="row">
-                <!-- <div class="litle-navbar -at-solution-post col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <a href="/"><img class="logo-ubuntu-svg" src="/assets/svg/kertaskampus-ubuntu.svg"></a>
-
-                    <a href="https://kertaskampus.com" class="by-kertaskampus pull-right"><img class="logo-kertaskampus-community-svg" src="/assets/svg/kertaskampus-community-navbar.svg"></a>
-                </div> -->
 
                 <div class="solution ubuntu content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="meta">
@@ -134,11 +130,20 @@
                         </div>    
                     </div>
                 </div>
-
                 <div class="social col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                            <div class="g-plusone" data-size="medium"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                           <a data-via="kertaskampus" data-count="horizontal"
+                            class="twitter-share-button"
+                              href="https://twitter.com/share">
+                            Tweet
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                           <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
                         </div>
                     </div>
                 </div>
@@ -168,29 +173,41 @@
                     </div>
                 </div>
 
+                <div class="footer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="pull-left logo" style="margin-right: 20px;"><a href="{{ .Site.Params.host }}"><img class="logo-svg" src="/assets/svg/logo.svg" alt="Logo Kertas Kampus"></a></div>
+                    <div class="g-follow" data-annotation="bubble" data-height="20" data-href="https://plus.google.com/114242165525776732038" data-rel="publisher"></div>
+                </div>
+
             </div>
         </div>
     
-    <!-- TODO: add sharing plugin -->
-    <!-- TODO: buat story https://developers.facebook.com/apps/1592539870964479/open-graph/stories/ -->
-    <!-- TODO: buat action types https://developers.facebook.com/apps/1592539870964479/open-graph/action-types/ -->
-    <!-- TODO: buat object types https://developers.facebook.com/apps/1592539870964479/open-graph/object-types/ -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1592539870964479',
-          xfbml      : true,
-          version    : 'v2.2'
-        });
-      };
+        <!-- TODO: add sharing plugin -->
+        <!-- TODO: buat story https://developers.facebook.com/apps/1592539870964479/open-graph/stories/ -->
+        <!-- TODO: buat action types https://developers.facebook.com/apps/1592539870964479/open-graph/action-types/ -->
+        <!-- TODO: buat object types https://developers.facebook.com/apps/1592539870964479/open-graph/object-types/ -->
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&appId=1592539870964479&version=v2.0";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+          ga('create', '{{ .Site.Params.gacode }}', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+        <script>
+        window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+        </script>
     </body>
 </html>

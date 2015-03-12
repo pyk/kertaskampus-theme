@@ -4,11 +4,6 @@ body {
     color: #333;
 }
 
-.hide-schema {
-    display: none;
-}
-
-
 /* TODO: add warna buat yg lain, link*/
 body.ubuntu a {
     color: #dd4814;
@@ -34,19 +29,20 @@ body.ubuntu a:focus {
 }
 
 .content > h3 {
-    font-size: 16px;
     letter-spacing: 2px;
     color: #a9a9a9;
     text-transform: uppercase;
+    margin-top: 60px;
+    font-size: 12px;
 }
 
 .content > p {
-    font-size: 18px;
+    color: #333;
+    font-size: 16px;
     line-height: 1.5em;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     letter-spacing: 0.5px;
-    color: #8a8a8a;
 }
 
 .logo-network {
@@ -59,8 +55,7 @@ body.ubuntu a:focus {
 }
 
 .logo-svg {
-    width: 162px;
-    height: 12px;
+    width: 110px;
 }
 
 .logo-golang-svg {
@@ -102,11 +97,6 @@ body.ubuntu a:focus {
     margin-top: 100px;
 }
 
-.litle-navbar.-at-solution-post {
-    margin-top: 16px;
-}
-
-
 .mission {
     margin-top: 40px;
 }
@@ -127,12 +117,6 @@ body.ubuntu a:focus {
     opacity: 1;
 }
 
-/* solution */
-.solution {
-    /*margin-top: 52px;*/
-    margin-top: 100px;
-}
-
 .meta {
     font-size: 12px;
     letter-spacing: 2px;
@@ -148,23 +132,9 @@ body.ubuntu a:focus {
     margin-top: 0;
 }
 
-.solution p {
-    color: #333;
-    font-size: 16px;
-    line-height: 1.5em;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
 .solution.ubuntu p code {
     font-size: 13px;
     color: #dd4814;
-}
-
-.solution h3, .footer h3 {
-    margin-top: 60px;
-    font-size: 12px;
 }
 
 pre {
@@ -175,4 +145,12 @@ pre {
 
 .footer {
     margin-bottom: 60px;
+}
+
+.social {
+    margin-bottom: 20px;
+}
+
+.post {
+    margin-top: 100px;
 }

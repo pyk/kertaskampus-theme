@@ -27,7 +27,8 @@
         <meta property="og:description" content="{{ .Site.Params.description }}" />
         <meta property="og:site_name" content="{{ .Site.Title }}" />
         <meta property="fb:app_id" content="1592539870964479" />
-        
+        <meta property="fb:admins" content="100000431291668" />
+
         <link href="https://plus.google.com/+Kertaskampus" rel="publisher" />
 
         <!-- Bootstrap -->
@@ -72,26 +73,34 @@
         <div class="container w640">
             <div class="row">
                 <div class="litle-navbar -at-home col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <a href="/"><img class="logo-ubuntu-svg" src="/assets/svg/kertaskampus-ubuntu.svg"></a>
+                    <a href="/"><img class="logo-ubuntu-svg" src="{{ .Site.Params.networklogo }}"></a>
                     <a href="https://kertaskampus.com" class="by-kertaskampus pull-right"><img class="logo-kertaskampus-community-svg" src="/assets/svg/kertaskampus-community-navbar.svg"></a>
                 </div>
 
                 <div class="mission content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p>
-                        We help <a href="http://www.ubuntu.com/">Ubuntu community</a> by providing and maintaning high quality solution to answer their question and solve their problem. 
+                        {{ .Site.Params.networkmission | safeHtml }}
                     </p>
                 </div>
                 
-                <div class="div social col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="g-follow" data-annotation="bubble" data-height="20" data-href="https://plus.google.com/114242165525776732038" data-rel="publisher"></div>                    
+                <div class="social col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="g-follow" data-annotation="bubble" data-height="20" data-href="https://plus.google.com/114242165525776732038" data-rel="publisher"></div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <a class="twitter-follow-button"
+                              href="https://twitter.com/kertaskampus"
+                              data-lang="en">
+                            Follow @kertaskampus
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="fb-follow" data-href="https://www.facebook.com/kertaskampus" data-colorscheme="light" data-layout="button_count" data-show-faces="false"></div>   
+                        </div>
+                    </div>                 
                 </div>
-                 
-                <div class="ubuntu-link-list content col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h3>Latest Solution</h3>
-                    {{ range first 5 .Data.Pages.ByDate.Reverse }}
-                        <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
-                    {{ end }}
-                </div>
+
                 <div class="networks content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h3>growing network</h3>
                     <p>
@@ -99,39 +108,52 @@
                     </p>
 
                     <div class="row network">
-                        <div class="logo-network col-lg-3 col-md-6 col-sm-6">
-                            <a href="#"><img class="logo-golang-svg unavailable" src="/assets/svg/kertaskampus-golang.svg"></a>
-                        </div>
-                        <div class="logo-network col-lg-3 col-md-6 col-sm-6">
-                            <a href="#"><img class="logo-docker-svg unavailable" src="/assets/svg/kertaskampus-docker.svg"></a>
-                        </div>
-                        <div class="logo-network col-lg-3 col-md-6 col-sm-6">
-                            <a href="#"><img class="logo-js-svg unavailable" src="/assets/svg/kertaskampus-javascript.svg"></a>
-                        </div>
-                        <div class="logo-network col-lg-3 col-md-3 col-sm-3">
-                            <a href="#"><img class="logo-windows-svg unavailable" src="/assets/svg/kertaskampus-windows.svg"></a>
-                        </div>
+                        {{ range $n := .Site.Data.networks }}
+                            <div class="logo-network col-lg-3 col-md-6 col-sm-6">
+                                <a href="{{ $n.url }}"><img class="{{ $n.class }} unavailable" src="{{ $n.logo }}"></a>
+                            </div>
+                        {{ end }}
                     </div>
                 </div>
+
+                <div class="footer ubuntu-link-list content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h3>Latest Solution</h3>
+                    {{ range first 5 .Data.Pages.ByDate.Reverse }}
+                        <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+                    {{ end }}
+                </div>
+
             </div>
         </div>
     
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1592539870964479',
-          xfbml      : true,
-          version    : 'v2.2'
-        });
-      };
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1592539870964479',
+              xfbml      : true,
+              version    : 'v2.2'
+            });
+          };
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', '{{ .Site.Params.gacode }}', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+        <script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>
     </body>
 </html>
