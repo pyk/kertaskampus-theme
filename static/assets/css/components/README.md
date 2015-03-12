@@ -1,1 +1,0 @@
-This directory contain component of static site. like header etc.
