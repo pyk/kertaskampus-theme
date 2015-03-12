@@ -16,6 +16,17 @@ body.ubuntu a:focus {
     opacity: 0.8;
 }
 
+body.golang a {
+    color: #4ac7de;
+}
+
+body.golang a:hover, 
+body.golang a:focus {
+    text-decoration: none;
+    color: #4ac7de;
+    opacity: 0.8;
+}
+
 .w640 {
     max-width: 640px;
 }
@@ -101,12 +112,14 @@ body.ubuntu a:focus {
     margin-top: 40px;
 }
 
-.ubuntu-link-list > p {
+.ubuntu-link-list > p,
+.golang-link-list > p {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 3px;
 }
 
-.ubuntu-link-list > p > a {
+.ubuntu-link-list > p > a,
+.golang-link-list > p > a {
     color: #333;
     text-transform: capitalize;
     font-size: 14px;
@@ -114,6 +127,11 @@ body.ubuntu a:focus {
 
 .ubuntu-link-list > p > a:hover {
     color: #dd4814;
+    opacity: 1;
+}
+
+.golang-link-list > p > a:hover {
+    color: #4ac7de;
     opacity: 1;
 }
 
@@ -135,6 +153,11 @@ body.ubuntu a:focus {
 .solution.ubuntu p code {
     font-size: 13px;
     color: #dd4814;
+}
+
+.solution.golang p code {
+    font-size: 13px;
+    color: #4ac7de;
 }
 
 pre {

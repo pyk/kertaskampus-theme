@@ -53,7 +53,7 @@
           src="https://apis.google.com/js/platform.js?publisherid=114242165525776732038">
         </script>   
     </head>
-    <body class="ubuntu">
+    <body class="{{ .Site.Params.network }}">
         <span itemprop="author" itemscope itemtype="http://schema.org/Organization">
             <meta itemprop="name" content="Kertas Kampus"/>
             <meta itemprop="url" content="https://kertaskampus.com/"/>
@@ -73,7 +73,7 @@
         <div class="container w640">
             <div class="row">
                 <div class="litle-navbar -at-home col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <a href="/"><img class="logo-ubuntu-svg" src="{{ .Site.Params.networklogo }}"></a>
+                    <a href="/"><img class="{{ .Site.Params.networkclass }}" src="{{ .Site.Params.networklogo }}"></a>
                     <a href="https://kertaskampus.com" class="by-kertaskampus pull-right"><img class="logo-kertaskampus-community-svg" src="/assets/svg/kertaskampus-community-navbar.svg"></a>
                 </div>
 
@@ -110,13 +110,13 @@
                     <div class="row network">
                         {{ range $n := .Site.Data.networks }}
                             <div class="logo-network col-lg-3 col-md-6 col-sm-6">
-                                <a href="{{ $n.url }}"><img class="{{ $n.class }} unavailable" src="{{ $n.logo }}"></a>
+                                <a href="{{ $n.url }}"><img class="{{ $n.class }} {{ $n.status }}" src="{{ $n.logo }}"></a>
                             </div>
                         {{ end }}
                     </div>
                 </div>
 
-                <div class="footer ubuntu-link-list content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="footer {{ .Site.Params.network }}-link-list content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h3>Latest Solution</h3>
                     {{ range first 5 .Data.Pages.ByDate.Reverse }}
                         <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>

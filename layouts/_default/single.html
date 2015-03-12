@@ -84,12 +84,11 @@
           src="https://apis.google.com/js/platform.js?publisherid=114242165525776732038">
         </script>
     </head>
-    <body class="ubuntu">
-    <!-- TODO: tampilin web page dulu -->
-    <div class="container w640 post">
+    <body class="{{ .Site.Params.network }}">
+        <!-- TODO: tampilin web page dulu -->
+        <div class="container w640 post">
             <div class="row">
-
-                <div class="solution ubuntu content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="solution {{ .Site.Params.network }} content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="meta">
                         <span class="tags">
                             {{ range first 1 .Params.tags }}
@@ -103,7 +102,7 @@
                     <h1 itemprop="name">{{ .Title }}</h1>
                     
                     <div itemprop="suggestedAnswer acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
-                        <div itemprop="text" class="solution ubuntu content">
+                        <div itemprop="text" class="solution {{ .Site.Params.network }} content">
                             {{ .Content }}
                         </div>
                         <meta itemprop="about" content="{{ .Description }}"/>
@@ -150,7 +149,7 @@
 
                 <div class="footer col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
-                        <div class="ubuntu-link-list content col-lg-6 col-md-6 col-sm-6">
+                        <div class="{{ .Site.Params.network }}-link-list content col-lg-6 col-md-6 col-sm-6">
                             <h3>Related Solution</h3>
                             {{ $categories := .Params.categories }}
                             {{ $title := .Title }}
@@ -164,7 +163,7 @@
                             {{ end }}
                         </div>
 
-                        <div class="ubuntu-link-list content col-lg-6 col-md-6 col-sm-6">
+                        <div class="{{ .Site.Params.network }}-link-list content col-lg-6 col-md-6 col-sm-6">
                             <h3>Latest Solution</h3>
                             {{ range first 5 .Site.Recent }}
                                 <p><a href="{{.Permalink}}">{{ .Title}}</a></p>
