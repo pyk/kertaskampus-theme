@@ -27,6 +27,17 @@ body.golang a:focus {
     opacity: 0.8;
 }
 
+body.docker a {
+    color: #a2bdee;
+}
+
+body.docker a:hover, 
+body.docker a:focus {
+    text-decoration: none;
+    color: #a2bdee;
+    opacity: 0.8;
+}
+
 .w640 {
     max-width: 640px;
 }
@@ -113,13 +124,15 @@ body.golang a:focus {
 }
 
 .ubuntu-link-list > p,
-.golang-link-list > p {
+.golang-link-list > p,
+.docker-link-list > p {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 3px;
 }
 
 .ubuntu-link-list > p > a,
-.golang-link-list > p > a {
+.golang-link-list > p > a,
+.docker-link-list > p > a {
     color: #333;
     text-transform: capitalize;
     font-size: 14px;
@@ -132,6 +145,11 @@ body.golang a:focus {
 
 .golang-link-list > p > a:hover {
     color: #4ac7de;
+    opacity: 1;
+}
+
+.docker-link-list > p > a:hover {
+    color: #a2bdee;
     opacity: 1;
 }
 
@@ -158,6 +176,11 @@ body.golang a:focus {
 .solution.golang p code {
     font-size: 13px;
     color: #4ac7de;
+}
+
+.solution.docker p code {
+    font-size: 13px;
+    color: #a2bdee;
 }
 
 pre {
