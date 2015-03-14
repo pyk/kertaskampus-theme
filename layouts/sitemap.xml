@@ -1,10 +1,16 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   {{ range .Site.Pages }}
-  <url>
-    <loc>{{ .Permalink }}</loc>
-    <lastmod>{{ safeHtml ( dateFormat "2006-01-02T15:04:05-07:00" .Params.modified ) }}</lastmod>{{ with .Sitemap.ChangeFreq }}
-    <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
-    <priority>{{ .Sitemap.Priority }}</priority>{{ end }}
-  </url>
+    <url>
+        <loc>{{ .Permalink }}</loc>
+        <lastmod>{{ safeHtml ( dateFormat "2006-01-02T15:04:05-07:00" .Params.modified ) }}</lastmod>
+        <image:image>
+            <image:loc>{{ .Params.banner }}</image:loc>
+            <image:title>Kertas Kampus: {{.Title }}</image:title>
+            <image:caption>{{ .Description }}</image:caption>
+            <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
+        </image:image>{{ with .Sitemap.ChangeFreq }}
+        <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
+        <priority>{{ .Sitemap.Priority }}</priority>{{ end }}
+    </url>
   {{ end }}
 </urlset>
