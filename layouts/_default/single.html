@@ -3,14 +3,14 @@
 {{ $modifiedISO8601 := dateFormat "2006-01-02T15:04:05+07:00" $modified }}
 {{ $version := dateFormat "200601_2150405" $modified }}
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/Question">
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/BlogPosting">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <title>{{ .Title }} - Kertas Kampus</title>
-        <meta name="description" content="{{ .Description }}" />
+        <meta itemprop="description" name="description" content="{{ .Description }}" />
         
         <meta itemprop="version" content="{{ $version }}" />
         <meta itemprop="image" content="{{ .Params.banner }}" />
@@ -18,7 +18,6 @@
         <meta itemprop="dateCreated" content="{{ $createdISO8601 }}"/>
         <meta itemprop="dateModified" content="{{ $modifiedISO8601 }}"/>
         <meta itemprop="datePublished" content="{{ $createdISO8601 }}"/>
-        <meta itemprop="answerCount" content="1"/>
         <meta itemprop="discussionUrl" content="{{ .Permalink }}"/>
         <meta itemprop="headline" content="{{ .Title }}"/>
         <meta itemprop="inLanguage" content="en-US"/>
@@ -26,19 +25,6 @@
         <meta itemprop="typicalAgeRange" content="7-" />
         <meta itemprop="license" content="https://creativecommons.org/licenses/by/4.0/"/>
         <meta itemprop="alternativeHeadline" content="{{ .Description }}"/>
-        <meta itemprop="description" content="{{ .Description }}"/>
-        <div itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
-            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
-            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
-            <meta content="male" itemprop="gender"/>
-        </div>
-        <div itemprop="editor" itemscope itemtype="http://schema.org/Person">
-            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
-            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
-            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
-            <meta content="male" itemprop="gender"/>
-        </div>
         <meta itemprop="keywords" content="{{delimit .Params.tags ", " ", "}}">
 
         <meta name="twitter:card" content="summary_large_image">
@@ -67,8 +53,8 @@
         <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
 
         <!-- fonts -->
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         
         <!-- custom style -->
         <link href="/assets/css/main.css" rel="stylesheet">
@@ -100,33 +86,16 @@
                     </div>
                     
                     <h1 itemprop="name">{{ .Title }}</h1>
-                    
-                    <div itemprop="suggestedAnswer acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
-                        <div itemprop="text" class="solution {{ .Site.Params.network }} content">
-                            {{ .Content }}
-                        </div>
-                        <meta itemprop="about" content="{{ .Description }}"/>
-                        <meta itemprop="dateCreated" content="{{ $createdISO8601 }}"/>
-                        <meta itemprop="dateModified" content="{{ $modifiedISO8601 }}"/>
-                        <meta itemprop="datePublished" content="{{ $createdISO8601 }}"/>
-                        <meta itemprop="url" content="{{ .Permalink }}"/>
-                        <meta itemprop="headline" content="Answer: {{ .Title }}"/>
-                        <meta itemprop="inLanguage" content="en-US"/>
-                        <meta itemprop="isFamilyFriendly" content="true"/>
-                        <meta itemprop="typicalAgeRange" content="7-"/>
-                        <meta itemprop="license" content="https://creativecommons.org/licenses/by/4.0/"/>
-                        <div itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
-                            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
-                            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
-                            <meta content="male" itemprop="gender"/>
-                        </div>
-                        <div itemprop="editor" itemscope itemtype="http://schema.org/Person">
-                            <meta content="{{ .Site.Params.author }}" itemprop="name"/>
-                            <meta content="{{ .Site.Params.author }}" itemprop="additionalName"/>
-                            <meta content="{{ .Site.Params.authorurl }}" itemprop="url"/>
-                            <meta content="male" itemprop="gender"/>
-                        </div>    
+                    <div itemprop="text" class="solution {{ .Site.Params.network }} content">
+                        {{ .Content }}
+                    </div>
+                    <div class="author">
+                        Written by 
+                        <span itemprop="author">
+                            <span itemscope itemtype="http://schema.org/Person">
+                                <span itemprop="name"><a href="https://plus.google.com/112561854874693756984" rel="author" oid="112561854874693756984">Bayu Aldi Yansyah</a></span>
+                            </span>   
+                        </span>
                     </div>
                 </div>
                 <div class="social col-lg-12 col-md-12 col-sm-12 col-xs-12">
